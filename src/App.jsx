@@ -1,25 +1,32 @@
 //importación
 import React from 'react'
+import Button from './components/Button'
+import MathOperations from './components/MathOperations'
 import Result from './components/Result'
 import './App.css'
 
 //generación de la funcion flecha o arrow function del componente
 const App = () => {
+
+    const clickHandlerFunction = text => {
+        console.log(text);
+    }
     //lo que ejecuta la función flecha
     return (
     <main className='react-calculator'>
-        <Result value={"0"}/>
+        <Result />
         <div className="numbers">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>0</button>
+            <Button text="1" clickHandler={clickHandlerFunction} type="button"/>
+            <Button text="2" type="button"/>
+            <Button text="3" type="button"/>
+            <Button text="4" type="button"/>
+            <Button text="5" type="button"/>
+            <Button text="6" type="button"/>
+            <Button text="7" type="button"/>
+            <Button text="8" type="button"/>
+            <Button text="9" type="button"/>
+            <Button text="0" type="button"/>
+            
         </div>
         <div className="functions">
             <button>
@@ -29,13 +36,13 @@ const App = () => {
                 r
             </button>
         </div>
-        <div className="math-operations">
-            <button>+</button>
-            <button>-</button>
-            <button>*</button>
-            <button>/</button>
-            <button>=</button>
-        </div>
+        <MathOperations 
+            onClickOperation={operation => 
+                console.log("",operation)
+            }
+            onClickEqual={equal => 
+                console.log("",equal)
+            }/>
     </main>)
 } 
 
